@@ -32,3 +32,40 @@ The project will evaluate multiple candidate architectures and configurations be
 * inference latency
 * computational requirements
 * deployment feasibility
+
+---
+
+# 1. Motivation
+
+Teeth whitening applications often rely on simple color manipulation or predefined facial regions. Such approaches can produce unnatural results when the system cannot accurately distinguish teeth from:
+
+* lips
+* gums
+* tongue
+* facial skin
+* oral shadows
+
+A reliable whitening system therefore requires a robust localization mechanism before any appearance modification is applied.
+
+EnamelAI approaches the problem as two sequential tasks:
+
+```text
+Facial Image
+     │
+     ▼
+Teeth Segmentation
+     │
+     ▼
+Precise Teeth Mask
+     │
+     ▼
+Mask Refinement
+     │
+     ▼
+Natural Whitening
+     │
+     ▼
+Final Image
+```
+
+The segmentation stage is treated as the primary computer vision problem, while whitening is implemented as a controlled downstream image-processing task.
